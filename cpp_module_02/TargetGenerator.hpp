@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SpellBook.hpp                                        :+:      :+:    :+:   */
+/*   TargetGenerator.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-class ASpell;
+class ATarget;
 
-class SpellBook
+class TargetGenerator
 {
 	public:
-		SpellBook( void );
-		~SpellBook( void );
+		TargetGenerator( void );
+		~TargetGenerator( void );
 		//getters
 		//setter
-		void learnSpell(ASpell* spell);
-		void forgetSpell(std::string const & spell_str);
-		ASpell* createSpell(std::string const & spell_str);
+		void		learnTargetType(ATarget* target);
+		void		forgetTargetType(std::string const & target_str);
+		ATarget*	createTarget(std::string const & target_str);
 	private:
-		SpellBook( const SpellBook &src) {(void)src;};
-		SpellBook& operator=(const SpellBook &rhs) {(void)rhs; return (*this);};
-		std::map<std::string, ASpell*> spells;
+		TargetGenerator( const TargetGenerator &src) {(void)src;};
+		TargetGenerator& operator=(const TargetGenerator &rhs) {(void)rhs; return (*this);};
+		std::map<std::string, ATarget*> targets;
 };
 

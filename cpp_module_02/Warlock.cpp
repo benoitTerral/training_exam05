@@ -44,25 +44,22 @@ void			Warlock::introduce( void ) const
 	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
 }
 
-void			Warlock::learnSpell(ASpell *spell)
+void 			Warlock::learnSpell(ASpell* spell)
 {
-	if (spell)
-		this->spellBook.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
+	book.learnSpell(spell);
 }
 
-void			Warlock::forgetSpell(std::string spell_str)
+void 			Warlock::forgetSpell(std::string const& spell_str)
 {
-	std::map<std::string, ASpell*>::iterator it = this->spellBook.find(spell_str);
-	if (it != this->spellBook.end())
-	{
-		delete it->second;
-		this->spellBook.erase(it->first);
-	}
+	book.forgetSpell(spell_str);
 }
 
-void			Warlock::launchSpell(std::string spell_str, ATarget const& target)
+void			Warlock::launchSpell(std::string const &spell_str, ATarget const& target)
 {
-	ASpell *spell = this->spellBook[spell_str];
+	ATarget *tmp = 0;
+	if (tmp == &target)
+		return;
+	ASpell *spell = book.createSpell(spell_str);
 	if (spell)
 		spell->launch(target);
 }

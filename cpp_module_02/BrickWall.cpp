@@ -12,7 +12,7 @@
 
 #include "Warlock.hpp"
 
-BrickWall::BrickWall( void ): ATarget("Target Practice BrickWall")
+BrickWall::BrickWall( void ): ATarget("Inconspicuous Red-brick Wall")
 {
 }
 

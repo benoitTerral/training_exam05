@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SpellBook.cpp                                        :+:      :+:    :+:   */
+/*   TargetGenerator.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,35 +12,35 @@
 
 #include "Warlock.hpp"
 
-SpellBook::SpellBook()
+TargetGenerator::TargetGenerator()
 {
 }
 
-SpellBook::~SpellBook( void )
+TargetGenerator::~TargetGenerator( void )
 {
-	for (std::map<std::string, ASpell*>::iterator it= this->spells.begin(); it != this->spells.end(); it++)
+	for (std::map<std::string, ATarget*>::iterator it= this->targets.begin(); it != this->targets.end(); it++)
 		delete it->second;
-	this->spells.clear();
+	this->targets.clear();
 }
 
-void	SpellBook::learnSpell(ASpell* spell)
+void	TargetGenerator::learnTargetType(ATarget* target)
 {
-	if (spell)
-		this->spells.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
+	if (target)
+		this->targets.insert(std::pair<std::string, ATarget*>(target->getType(), target->clone()));
 }
 
-void	SpellBook::forgetSpell(std::string const& spell_str)
+void	TargetGenerator::forgetTargetType(std::string const& target_str)
 {
-	std::map<std::string, ASpell*>::iterator it = this->spells.find(spell_str);
-	if (it != this->spells.end())
+	std::map<std::string, ATarget*>::iterator it = this->targets.find(target_str);
+	if (it != this->targets.end())
 	{
 		delete it->second;
-		this->spells.erase(it->first);
+		this->targets.erase(it->first);
 	}
 }
 
-ASpell*	SpellBook::createSpell(std::string const& spell_str)
+ATarget* TargetGenerator::createTarget(std::string const& target_str)
 {
-	ASpell *spell = this->spells[spell_str];
-        return (spell);
+	ATarget *target = this->targets[target_str];
+        return (target);
 }
