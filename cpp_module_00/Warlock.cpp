@@ -12,7 +12,7 @@
 
 #include "Warlock.hpp"
 
-Warlock::Warlock(std::string iname, std::string ititle): name(iname), title(ititle)
+Warlock::Warlock(std::string name, std::string title): name(name), title(title)
 {
 	std::cout << this->name << ": This looks like another boring day." << std::endl;
 }

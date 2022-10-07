@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 # include <iostream>
+
 
 class Warlock
 {
 	public:
-		Warlock( std::string iname, std::string ititle);
+		Warlock( std::string name, std::string title);
 		~Warlock( void );
 		void	introduce( void ) const;
 		//getters
@@ -26,7 +28,7 @@ class Warlock
 	private:
 		std::string	name;
 		std::string	title;
-		Warlock( void ) {};
-		Warlock( const Warlock &src) {(void)src;};
-		Warlock& operator=(const Warlock &rhs) {(void)rhs; return (*this);};
+		Warlock( void );
+		Warlock( const Warlock &src);
+		Warlock& operator=(const Warlock &rhs);
 };

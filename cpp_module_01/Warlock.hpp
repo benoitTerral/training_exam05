@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WARLOCK_HPP
-#define WARLOCK_HPP
+#pragma once
 # include <iostream>
 # include <map>
 # include "ASpell.hpp"
@@ -37,10 +36,9 @@ class Warlock
 	private:
 		std::string	name;
 		std::string	title;
-		Warlock( void ) {};
-		Warlock( const Warlock &src) {(void)src;};
-		Warlock& operator=(const Warlock &rhs) {(void)rhs; return (*this);};
+		Warlock( void );
+		Warlock( const Warlock &src);
+		Warlock& operator=(const Warlock &rhs);
 		std::map<std::string, ASpell*> spellBook;
 };
 
-#endif
