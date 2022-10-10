@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Warlock.hpp                                        :+:      :+:    :+:   */
+/*   TargetGenerator.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:22:58 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/05 16:49:33 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2022/10/06 17:16:50 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-# include <iostream>
+class ATarget;
 
-
-class Warlock
+class TargetGenerator
 {
 	public:
-		Warlock( std::string name, std::string title);
-		~Warlock( void );
-		void	introduce( void ) const;
+		TargetGenerator( void );
+		~TargetGenerator( void );
 		//getters
-		std::string	const & getName( void ) const;
-		std::string	const & getTitle( void ) const;
 		//setter
-		void			setTitle(std::string const & ititle);
+		void		learnTargetType(ATarget* target);
+		void		forgetTargetType(std::string const & target_str);
+		ATarget*	createTarget(std::string const & target_str);
 	private:
-		std::string	name;
-		std::string	title;
-		Warlock( void );
-		Warlock( const Warlock &src);
-		Warlock& operator=(const Warlock &rhs);
+		TargetGenerator( const TargetGenerator &src) {(void)src;};
+		TargetGenerator& operator=(const TargetGenerator &rhs) {(void)rhs; return (*this);};
+		std::map<std::string, ATarget*> targets;
 };
+

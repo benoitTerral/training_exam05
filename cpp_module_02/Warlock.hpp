@@ -10,14 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WARLOCK_HPP
-#define WARLOCK_HPP
+#pragma once
 # include <iostream>
+# include <string>
 # include <map>
 # include "ASpell.hpp"
 # include "ATarget.hpp"
 # include "Dummy.hpp"
 # include "Fwoosh.hpp"
+# include "SpellBook.hpp"
+# include "TargetGenerator.hpp"
+# include "Fireball.hpp"
+# include "Polymorph.hpp"
+# include "BrickWall.hpp"
 
 class Warlock
 {
@@ -31,16 +36,15 @@ class Warlock
 		//setter
 		void			setTitle(std::string const & title);
 		void			learnSpell(ASpell *spell);
-		void			forgetSpell(std::string spell_str);
-		void			launchSpell(std::string spell_str, ATarget const& target);
-
+		void			forgetSpell(std::string const& spell_str);
+		void			launchSpell(std::string const &spell_str, ATarget const& target);
+		ASpell* 		createSpell(std::string const & spell_str);
 	private:
 		std::string	name;
 		std::string	title;
 		Warlock( void ) {};
 		Warlock( const Warlock &src) {(void)src;};
 		Warlock& operator=(const Warlock &rhs) {(void)rhs; return (*this);};
-		std::map<std::string, ASpell*> spellBook;
+		SpellBook	book;		
 };
 
-#endif

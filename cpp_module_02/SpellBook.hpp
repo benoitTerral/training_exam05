@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+class ASpell;
+
 class SpellBook
 {
 	public:
@@ -17,13 +19,12 @@ class SpellBook
 		~SpellBook( void );
 		//getters
 		//setter
-		void learnSpell(ASpell*);
-		void forgetSpell(string const &);
-		ASpell* createSpell(string const &);
+		void learnSpell(ASpell* spell);
+		void forgetSpell(std::string const & spell_str);
+		ASpell* createSpell(std::string const & spell_str);
 	private:
 		SpellBook( const SpellBook &src) {(void)src;};
 		SpellBook& operator=(const SpellBook &rhs) {(void)rhs; return (*this);};
-		std::map<std::string, ASpell*> spellBook;
+		std::map<std::string, ASpell*> spells;
 };
 
-#endif
