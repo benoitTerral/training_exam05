@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ASpell.cpp                                         :+:      :+:    :+:   */
+/*   ASpell.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 09:50:18 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/06 13:47:35 by bterral          ###   ########lyon.fr   */
+/*   Created: 2022/10/10 10:12:28 by bterral           #+#    #+#             */
+/*   Updated: 2022/10/10 10:46:26 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Warlock.hpp"
 
-ASpell::ASpell( void ) {}
+ASpell::ASpell(std::string name, std::string effects): name(name), effects(effects)
+{
+}
 
-ASpell::~ASpell() {}
+ASpell::ASpell() {}
 
-ASpell::ASpell(std::string name, std::string effects): name(name), effects(effects) {}
+ASpell::ASpell(ASpell const& copy): name(copy.getName()), effects(copy.getEffects())
+{
+}
 
-ASpell::ASpell( ASpell const& src): name(src.getName()), effects(src.getEffects()) {}
-
-ASpell&	ASpell::operator=(ASpell const& rhs)
+ASpell& ASpell::operator=(ASpell const& rhs)
 {
 	this->name = rhs.getName();
 	this->effects = rhs.getEffects();
 	return (*this);
 }
 
-std::string const&	ASpell::getName( void ) const
+ASpell::~ASpell()
+{
+}
+
+
+std::string const& ASpell::getName() const
 {
 	return (this->name);
 }
 
-std::string const& ASpell::getEffects( void ) const
+std::string const& ASpell::getEffects() const
 {
 	return (this->effects);
 }

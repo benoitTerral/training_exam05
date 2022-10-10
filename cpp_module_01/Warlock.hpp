@@ -5,42 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 15:22:58 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/06 16:47:02 by bterral          ###   ########lyon.fr   */
+/*   Created: 2022/10/10 10:08:00 by bterral           #+#    #+#             */
+/*   Updated: 2022/10/10 11:00:33 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WARLOCK_HPP
-#define WARLOCK_HPP
-# include <iostream>
-# include <map>
-# include "ASpell.hpp"
-# include "ATarget.hpp"
-# include "Dummy.hpp"
-# include "Fwoosh.hpp"
+#pragma once
+#include <iostream>
+#include <map>
+#include "ASpell.hpp"
+#include "ATarget.hpp"
+#include "Fwoosh.hpp"
+#include "Dummy.hpp"
 
 class Warlock
 {
 	public:
-		Warlock( std::string name, std::string title);
-		~Warlock( void );
-		void	introduce( void ) const;
+		Warlock(std::string name, std::string title);
+		~Warlock();
 		//getters
-		std::string	const & getName( void ) const;
-		std::string	const & getTitle( void ) const;
-		//setter
-		void			setTitle(std::string const & title);
-		void			learnSpell(ASpell *spell);
-		void			forgetSpell(std::string spell_str);
-		void			launchSpell(std::string spell_str, ATarget const& target);
+		std::string const& getName() const;
+		std::string const& getTitle() const;
 
+		void	setTitle(std::string const& title);
+
+		void introduce() const;
+		void	learnSpell(ASpell *spell);
+		void	forgetSpell(std::string spell_str);
+		void	launchSpell(std::string spell_str, ATarget const& target);
 	private:
+		Warlock();
+		Warlock(Warlock const& copy);
+		Warlock operator=(Warlock const& rhs);
 		std::string	name;
 		std::string	title;
-		Warlock( void ) {};
-		Warlock( const Warlock &src) {(void)src;};
-		Warlock& operator=(const Warlock &rhs) {(void)rhs; return (*this);};
-		std::map<std::string, ASpell*> spellBook;
-};
-
-#endif
+		std::map<std::string, ASpell*> book;
+}
+;
