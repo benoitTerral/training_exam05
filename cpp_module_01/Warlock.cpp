@@ -6,7 +6,7 @@
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:12:28 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/10 11:36:53 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2022/10/10 13:45:46 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	Warlock::learnSpell(ASpell *spell)
 		this->book.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
 }
 
-void	Warlock::forgetSpell(std::string spell_str)
+void	Warlock::forgetSpell(std::string const& spell_str)
 {
 	std::map<std::string, ASpell*>::iterator it = this->book.find(spell_str);
 	if (it != this->book.end())
@@ -61,7 +61,7 @@ void	Warlock::forgetSpell(std::string spell_str)
 	}
 }
 
-void	Warlock::launchSpell(std::string spell_str, ATarget const& target)
+void	Warlock::launchSpell(std::string const& spell_str, ATarget const& target)
 {
 	ASpell *spell = this->book[spell_str];
 	if (spell)
