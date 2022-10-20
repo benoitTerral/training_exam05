@@ -6,7 +6,7 @@
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:50:18 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/06 13:47:35 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2022/10/20 13:41:38 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string const& ASpell::getEffects( void ) const
 	return (this->effects);
 }
 
-void	ASpell::launch(ATarget const& target)
+void	ASpell::launch(ATarget const& target) const
 {
 	target.getHitBySpell(*this);
 }

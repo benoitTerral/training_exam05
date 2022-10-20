@@ -6,7 +6,7 @@
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:08:00 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/10 10:46:48 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2022/10/20 13:40:31 by bterral          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ASpell
 
 		virtual ASpell* clone() const = 0;
 
-		void	launch(ATarget const& target);
+		void	launch(ATarget const& target) const;
 	private:
 		std::string	name;
 		std::string	effects;
