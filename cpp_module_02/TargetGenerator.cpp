@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TargetGenerator.cpp                                        :+:      :+:    :+:   */
+/*   TargetGenerator.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:32:26 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/06 17:21:04 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2023/03/06 16:46:33 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ TargetGenerator::~TargetGenerator( void )
 void	TargetGenerator::learnTargetType(ATarget* target)
 {
 	if (target)
-		this->targets.insert(std::pair<std::string, ATarget*>(target->getType(), target->clone()));
+		targets[target->getType()] = target->clone();
 }
 
 void	TargetGenerator::forgetTargetType(std::string const& target_str)

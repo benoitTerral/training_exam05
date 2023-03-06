@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SpellBook.cpp                                        :+:      :+:    :+:   */
+/*   SpellBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:32:26 by bterral           #+#    #+#             */
-/*   Updated: 2022/10/06 17:21:04 by bterral          ###   ########lyon.fr   */
+/*   Updated: 2023/03/06 16:48:31 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ SpellBook::~SpellBook( void )
 void	SpellBook::learnSpell(ASpell* spell)
 {
 	if (spell)
-		this->spells.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
+		spells[spell->getName()] = spell->clone();
 }
 
 void	SpellBook::forgetSpell(std::string const& spell_str)
